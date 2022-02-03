@@ -6,17 +6,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h4>
+          Welcome to Jamess and Naeem's joint website!
+        </h4>
+        <h1>
+          James is the software brain while Naeem is the hardware braun, and together we are looking to make interesting projects!
+        </h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Stay tuned for more...
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
