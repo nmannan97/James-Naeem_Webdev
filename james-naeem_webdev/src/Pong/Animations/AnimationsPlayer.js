@@ -4,7 +4,11 @@ import '../Pong.css';
 var drag = false;
 var dragEnd;
 var dragStart;
-
+var rectanglePosition = 0;
+var mousePosition = {
+  x: 0, 
+  y: 0
+}
 const AnimationsPlayer = props => {
   
   const canvasRef = useRef(null)
@@ -15,67 +19,48 @@ const AnimationsPlayer = props => {
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
 
-    canvas.height = 300;
+    canvas.height = 450;
+    canvas.width = 450;
 
+    console.log(canvas.height)
     function clear() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    function draw() {
-        context.fillRect(20, 20, 5, 20);
+    function draw(yPosition) {
+        context.fillRect(20, yPosition - (canvas.height - 50), 5, 50);
     }
 
-    canvas.addEventListener('mousedown', function(event) {
-      var DragMouse = event.pageY - canvas.height
-      const move = 100;
-      if(DragMouse>0){
-        dragStart = {
-          y: move
-        }
-      }
-      else{
-        dragStart = {
-          y: move*-1
-        }
-      }
+    canvas.addEventListener('mouseover' || 'mousedown', function(event) {
+      drag = true;
+  
+    });
+    
+    canvas.addEventListener('mousemove', function(event) {
+      const move = 1;
+      clear()
+      console.log(event.clientY)
+      if (drag) { 
+        //context.translate(0, event.clientY)
+        mousePosition = {y : (event.clientY)}
         
-        console.log(event.pageY - canvas.height)
-        drag = true;
+      }
     
       });
     
-      canvas.addEventListener('mousemove', function(event) {
-        const move =;
-        if (drag) {
-            dragEnd = {
-                y: event.pageY - canvas.height
-            }
-            var Drag = dragEnd.y - dragStart.y
-            //console.log(Drag);
-            if(Drag<0){
-              context.translate(0, (Drag)/50);
-            }
-              
-            clear()
-        }
-    
-      });
-    
-      canvas.addEventListener('mouseup', function(event) {
+      canvas.addEventListener('mouseout' || 'mouseup', function(event) {
         drag = false;
     
       });
 
-      canvas.addEventListener('mouseexit', function(event) {
-        drag = false;
-    
-      });
+      
     let animationFrameId
     
     
     const render = () => {
-        draw()
-        animationFrameId = window.requestAnimationFrame(render)
+      
+      draw(mousePosition.y)
+      animationFrameId = window.requestAnimationFrame(render)
     }
     render()
     

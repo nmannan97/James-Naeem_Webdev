@@ -1,5 +1,5 @@
 import './Pong.css';
-import Playerbar from './PlayerObjects/Playerbar';
+import Playerbar from './Objects/Playerbar';
 
 export default function Pong(){
     

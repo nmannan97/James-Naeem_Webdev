@@ -2,6 +2,7 @@
 
 /*** User classes ***/
 .mainContainer{
+    position: absolute;
     padding: 5px;
     width: 500px;
     height: 500px;
@@ -14,6 +15,20 @@
 }
 
 .subContainer{
+    
+    padding: 5px;
+    width: 450px;
+    height: 450px;
+    max-width: auto;
+    max-height: auto;
+    background-color: black;
+    opacity: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subContainer:hover{
+    
     padding: 5px;
     width: 450px;
     height: 450px;
@@ -22,8 +37,8 @@
     background-color: white;
     margin-left: auto;
     margin-right: auto;
+    opacity: 100%;
 }
-
 .startButton{
     margin-left: auto;
     margin-right: auto;
