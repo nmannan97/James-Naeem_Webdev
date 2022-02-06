@@ -1,0 +1,23 @@
+/*** Regular tags ***/
+
+/*** Class names ***/
+.NaeemButton {
+    transition-duration: 0.4s;
+    background-color: none;
+    border: red;
+    color: black;
+    padding: 5px 5px;
+    text-align : center;
+    font-size: 14x;
+    border-radius: 4px;
+}
+.NaeemButton:hover {
+    background-color: red;
+    border: black;
+    color: black;
+    padding: 5px 5px;
+    text-align : center;
+    font-size: 16px;
+    border-radius: 4px;
+
+}
