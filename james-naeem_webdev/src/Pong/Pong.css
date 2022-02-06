@@ -2,7 +2,7 @@
 
 /*** User classes ***/
 .mainContainer{
-    position: absolute;
+    font-size: 20px;
     padding: 5px;
     width: 500px;
     height: 500px;
@@ -15,25 +15,19 @@
 }
 
 .subContainer{
-    
     padding: 5px;
     width: 450px;
     height: 450px;
-    max-width: auto;
-    max-height: auto;
     background-color: black;
     opacity: 10%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.subContainer:hover{
-    
+.subContainer:hover{   
     padding: 5px;
     width: 450px;
     height: 450px;
-    max-width: auto;
-    max-height: auto;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
@@ -48,5 +42,4 @@
 
 .Player{
     width: 450px;
-    max-width: auto;
 }

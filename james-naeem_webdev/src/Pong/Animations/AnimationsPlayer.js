@@ -2,13 +2,12 @@ import React, { useRef, useEffect } from 'react'
 import '../Pong.css';
 
 var drag = false;
-var dragEnd;
-var dragStart;
-var rectanglePosition = 0;
-var mousePosition = {
-  x: 0, 
-  y: 0
+var mousePosition = 0;
+
+function playerPosition() {
+  return mousePosition
 }
+
 const AnimationsPlayer = props => {
   
   const canvasRef = useRef(null)
@@ -37,12 +36,10 @@ const AnimationsPlayer = props => {
     });
     
     canvas.addEventListener('mousemove', function(event) {
-      const move = 1;
       clear()
-      console.log(event.clientY)
       if (drag) { 
         //context.translate(0, event.clientY)
-        mousePosition = {y : (event.clientY)}
+        mousePosition = event.clientY
         
       }
     
@@ -59,7 +56,7 @@ const AnimationsPlayer = props => {
     
     const render = () => {
       
-      draw(mousePosition.y)
+      draw(mousePosition)
       animationFrameId = window.requestAnimationFrame(render)
     }
     render()
@@ -68,8 +65,13 @@ const AnimationsPlayer = props => {
       window.cancelAnimationFrame(animationFrameId)
     }
   }, [])
-  
-  return <canvas ref={canvasRef} className="Player"/>
+
+  return(
+    <div>
+      <canvas id='Player' ref={canvasRef} className="Player"/>
+    </div>
+  );
 }
 
-export default AnimationsPlayer
+export {playerPosition}
+export default AnimationsPlayer;

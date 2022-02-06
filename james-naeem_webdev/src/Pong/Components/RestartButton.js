@@ -3,7 +3,7 @@ import '../Pong';
 let gamePlay = false;
 let player;
 
-function startGame(){
+function restartGame(){
     gamePlay = true;
     console.log("Game has started")
     alert("Game has started")
@@ -16,7 +16,7 @@ function startGame(){
 export default function Startbutton(){
 
     const btnStart = document.querySelector('.startButton');
-    btnStart && btnStart.addEventListener("click",startGame, false);
+    btnStart && btnStart.addEventListener("click",restartGame, false);
 
     return(
         <button className="startButton" onClick={startGame()}>
