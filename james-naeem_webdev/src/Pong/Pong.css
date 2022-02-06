@@ -32,5 +32,6 @@
 }
 
 .Player{
-
+    width: 450px;
+    max-width: auto;
 }

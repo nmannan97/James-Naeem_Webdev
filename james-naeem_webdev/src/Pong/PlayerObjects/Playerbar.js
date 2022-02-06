@@ -1,9 +1,7 @@
-import Animations from '../Animations/Animations'
-import React, { useRef, useEffect } from 'react'
-import '../Pong.css'
+import AnimationsPlayer from '../Animations/AnimationsPlayer'
 
 const Playerbar = props => {
-    return <Animations className="Player"/>
+    return <AnimationsPlayer />
 }
 
 export default Playerbar

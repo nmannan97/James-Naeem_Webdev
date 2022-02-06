@@ -1,42 +1,61 @@
 import React, { useRef, useEffect } from 'react'
+import '../Pong.css';
 
 var drag = false;
 var dragEnd;
 var dragStart;
 
-const Canvas = props => {
+const AnimationsPlayer = props => {
   
   const canvasRef = useRef(null)
 
   useEffect(() => {
     
+
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
+
+    canvas.height = 300;
 
     function clear() {
         context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     function draw() {
-        context.fillRect(5, 20, 20, 100);
+        context.fillRect(20, 20, 5, 20);
     }
 
     canvas.addEventListener('mousedown', function(event) {
+      var DragMouse = event.pageY - canvas.height
+      const move = 100;
+      if(DragMouse>0){
         dragStart = {
-          y: event.pageY - canvas.offsetTop
+          y: move
         }
-    
+      }
+      else{
+        dragStart = {
+          y: move*-1
+        }
+      }
+        
+        console.log(event.pageY - canvas.height)
         drag = true;
     
       });
     
       canvas.addEventListener('mousemove', function(event) {
+        const move =;
         if (drag) {
             dragEnd = {
-                y: event.pageY - canvas.offsetTop
+                y: event.pageY - canvas.height
             }
-            context.translate(0, (dragEnd.y - dragStart.y)/40);
-          
+            var Drag = dragEnd.y - dragStart.y
+            //console.log(Drag);
+            if(Drag<0){
+              context.translate(0, (Drag)/50);
+            }
+              
             clear()
         }
     
@@ -46,7 +65,11 @@ const Canvas = props => {
         drag = false;
     
       });
-    let frameCount = 0
+
+      canvas.addEventListener('mouseexit', function(event) {
+        drag = false;
+    
+      });
     let animationFrameId
     
     
@@ -61,7 +84,7 @@ const Canvas = props => {
     }
   }, [])
   
-  return <canvas ref={canvasRef}/>
+  return <canvas ref={canvasRef} className="Player"/>
 }
 
-export default Canvas
+export default AnimationsPlayer
