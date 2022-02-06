@@ -1,16 +1,15 @@
 import './Pong.css';
 import Playerbar from './PlayerObjects/Playerbar';
-import { Layer, Stage} from 'react-konva';
 
-export default function SpaceInvaders(){
+export default function Pong(){
     
     
     return(
-        <div className="mainContainer">
-            <div className="subContainer">
-                <canvas id = 'Pong'>
-                    
-                </canvas>
+        <div id="container1" className="mainContainer">
+            <div id="container2" className="subContainer">
+            
+                <Playerbar />
+
             </div>
             
         </div>
