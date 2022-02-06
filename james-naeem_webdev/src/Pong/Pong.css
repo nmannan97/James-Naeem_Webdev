@@ -31,6 +31,7 @@
     margin-bottom: auto;
 }
 
-.playerBar{
-    
+.Player{
+    width: 200px;
+    height: 450px;
 }

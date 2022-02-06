@@ -1,34 +1,19 @@
-import "../Pong.css"
+import Animations from '../Animations/Animations'
+import React, { useRef, useEffect } from 'react'
+import '../Pong.css'
+const Playerbar = props => {
 
-let gamePlay = false;
-let player;
-
-
-
-function startGame(){
-    gamePlay = true;
-    console.log("Game has started")
-    alert("Game has started")
-    player={
-        score: 0,
-        lives: 1
-    }
-}
-
-export default function Playerbar(){
-
-    const btnStart = document.querySelector('.playerBar');
-    btnStart && btnStart.addEventListener("click",startGame, false);
-
-    const canvas = document.querySelector('Pong')
-
-    // initiating 2D context on it
-    const c = canvas.getContext('2d')
-
-    return(
-        <div>
-
-        </div>
+    const draw = (ctx, frameCount) => {
         
-    );
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        ctx.fillStyle = '#000000'
+        ctx.beginPath()
+        ctx.rect(20, frameCount, 20, 20)
+        ctx.fill()
+      }
+      
+    return <Animations draw={draw} className="Player"/>
+  
 }
+
+export default Playerbar
