@@ -1,30 +1,67 @@
 import React, { useRef, useEffect } from 'react'
 
-const Animations = props => {
+var drag = false;
+var dragEnd;
+var dragStart;
+
+const Canvas = props => {
   
-  const { draw, ...rest } = props
   const canvasRef = useRef(null)
-  
+
   useEffect(() => {
     
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
+
+    function clear() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function draw() {
+        context.fillRect(5, 20, 20, 100);
+    }
+
+    canvas.addEventListener('mousedown', function(event) {
+        dragStart = {
+          y: event.pageY - canvas.offsetTop
+        }
+    
+        drag = true;
+    
+      });
+    
+      canvas.addEventListener('mousemove', function(event) {
+        if (drag) {
+            dragEnd = {
+                y: event.pageY - canvas.offsetTop
+            }
+            context.translate(0, (dragEnd.y - dragStart.y)/40);
+          
+            clear()
+        }
+    
+      });
+    
+      canvas.addEventListener('mouseup', function(event) {
+        drag = false;
+    
+      });
     let frameCount = 0
     let animationFrameId
     
+    
     const render = () => {
-      frameCount++
-      draw(context, frameCount)
-      animationFrameId = window.requestAnimationFrame(render)
+        draw()
+        animationFrameId = window.requestAnimationFrame(render)
     }
     render()
     
     return () => {
       window.cancelAnimationFrame(animationFrameId)
     }
-  }, [draw])
+  }, [])
   
-  return <canvas ref={canvasRef} {...rest}/>
+  return <canvas ref={canvasRef}/>
 }
 
-export default Animations
+export default Canvas
