@@ -1,8 +1,9 @@
 import "../Pong.css"
-import {Rect} from 'react-konva';
 
 let gamePlay = false;
 let player;
+
+
 
 function startGame(){
     gamePlay = true;
@@ -19,28 +20,14 @@ export default function Playerbar(){
     const btnStart = document.querySelector('.playerBar');
     btnStart && btnStart.addEventListener("click",startGame, false);
 
-    const handleDragStart = (e) =>{
-        const id = e.target.id();
+    const canvas = document.querySelector('Pong')
 
-    }
-
-    const handleDragEnd = (e) =>{
-        const id = e.target.id();
-
-    }
+    // initiating 2D context on it
+    const c = canvas.getContext('2d')
 
     return(
-        <div id="playerBar">
-            <Rect
-            x={20}
-            y={50}
-            width={20}
-            height={100}
-            fill="black"
-            shadowBlur={10}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-            />
+        <div>
+
         </div>
         
     );
