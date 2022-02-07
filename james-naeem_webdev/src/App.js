@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Pong from './Pong/Pong'
 
+import Pong from './Pong/Pong'
+import Homebuttons from './UserComponents/Homebuttons'
 function App() {
   return (
     <div className="App">
@@ -15,7 +16,9 @@ function App() {
         </h1>
         <p>
           Stay tuned for more...
+          <Homebuttons />
         </p>
+        
       </header>
       <Pong />
     </div>
