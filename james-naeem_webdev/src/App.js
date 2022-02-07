@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Homebuttons from './UserComponents/Homebuttons';
-import SpaceInvaders from './Pong/Pong';
+import Pong from './Pong/Pong'
 
 function App() {
   return (
@@ -9,19 +8,16 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h4>
-          Welcome to Jamess and Naeem's joint webpage!
+          Welcome to Jamess and Naeem's joint website!
         </h4>
-        <h2>
+        <h1>
           James is the software brain while Naeem is the hardware braun, and together we are looking to make interesting projects!
-        </h2>
+        </h1>
         <p>
           Stay tuned for more...
         </p>
-
-        <Homebuttons/>
-
       </header>
-      <SpaceInvaders />
+      <Pong />
     </div>
   );
 }
