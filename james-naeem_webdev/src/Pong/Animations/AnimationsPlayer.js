@@ -15,27 +15,27 @@ const AnimationsPlayer = props => {
   useEffect(() => {
     
 
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
+    const canvasPlayer = document.getElementById("Pong")
+    const context = canvasPlayer.getContext('2d')
 
-    canvas.height = 450;
-    canvas.width = 450;
+    canvasPlayer.height = 450;
+    canvasPlayer.width = 450;
 
-    console.log(canvas.height)
+
     function clear() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.clearRect(0, 0, canvasPlayer.width, canvasPlayer.height);
     }
 
     function draw(yPosition) {
-        context.fillRect(20, yPosition - (canvas.height - 25), 5, 50);
+        context.fillRect(20, yPosition - (45), 5, 50);
     }
 
-    canvas.addEventListener('mouseover' || 'mousedown', function(event) {
+    canvasPlayer.addEventListener('mouseover' || 'mousedown', function(event) {
       drag = true;
   
     });
     
-    canvas.addEventListener('mousemove', function(event) {
+    canvasPlayer.addEventListener('mousemove', function(event) {
       clear()
       if (drag) { 
         //context.translate(0, event.clientY)
@@ -45,7 +45,7 @@ const AnimationsPlayer = props => {
     
       });
     
-      canvas.addEventListener('mouseout' || 'mouseup', function(event) {
+      canvasPlayer.addEventListener('mouseout' || 'mouseup', function(event) {
         drag = false;
     
       });
@@ -67,9 +67,9 @@ const AnimationsPlayer = props => {
   }, [])
 
   return(
-    <div>
-      <canvas id='Player' ref={canvasRef} className="Player"/>
-    </div>
+      <p>
+        Player
+      </p>
   );
 }
 

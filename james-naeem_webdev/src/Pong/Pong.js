@@ -1,18 +1,20 @@
 import './Pong.css';
 import Playerbar from './Objects/Playerbar';
-import {playerPosition} from './Animations/AnimationsPlayer'
+//import {playerPosition} from './Animations/AnimationsPlayer'
 
 export default function Pong(){
     
-    var player = String(playerPosition);
+    //var player = String(playerPosition);
 
-    console.log(Number(player));
+    //console.log(Number(player));
 
     return(
         <div id="container1" className="mainContainer">
             Pong
             <div id="container2" className="subContainer">
-                <Playerbar />
+                
+                <canvas id='Pong'></canvas>
+                <Playerbar/>
             </div>
             
         </div>
