@@ -1,5 +1,6 @@
 import './Pong.css';
 import Playerbar from './Objects/Playerbar';
+import Ball from './Objects/Ball';
 //import {playerPosition} from './Animations/AnimationsPlayer'
 
 export default function Pong(){
@@ -15,6 +16,7 @@ export default function Pong(){
                 
                 <canvas id='Pong'></canvas>
                 <Playerbar/>
+                <Ball/>
             </div>
             
         </div>
