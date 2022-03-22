@@ -22,7 +22,7 @@ const AnimationsPlayer = props => {
     }
 
     function draw(yPosition) {
-        context.fillRect(playerPosition.x, yPosition - 325, 5, 50);
+        context.fillRect(playerPosition.x, yPosition - 125, 5, 50);
     }
 
     canvasPlayer.addEventListener('mouseover' || 'mousedown', function(event) {
